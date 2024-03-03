@@ -10,8 +10,12 @@ interface FactProps {
 const Fact = ({ id, image, title, children }: FactProps): JSX.Element => {
   return (
     <div className="grid grid-cols-[30%_70%]">
-      <div className="aspect-square cursor-pointer w-full h-full">
-        <img src={image} alt="represent image" className="block object-cover" />
+      <div className="aspect-square cursor-pointer">
+        <img
+          src={image}
+          alt="represent image"
+          className="block object-cover w-full h-full"
+        />
       </div>
       <div className="p-4 grid grid-flow-row gap-2">
         <h1 className="text-3xl font-bold text-navAndText cursor-pointer">

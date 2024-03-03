@@ -3,7 +3,7 @@ import web3Mobile from "../assets/images/image-web-3-mobile.jpg";
 
 const Main = () => {
   return (
-    <section className="grid grid-cols-1 grid-flow-row gap-4">
+    <>
       <picture>
         <source media="(min-width: 768px)" srcSet={web3Desktop} />
         <img src={web3Mobile} alt="web 3 image" />
@@ -21,7 +21,7 @@ const Main = () => {
           read more
         </button>
       </div>
-    </section>
+    </>
   );
 };
 

@@ -4,17 +4,21 @@ import New from "./New";
 import Fact from "./Fact";
 import Nav from "./Nav";
 import Main from "./Main";
+import { useState } from "react";
 
-type HomeProps = {
-  isShowNav: boolean;
-  setIsShowNav: React.Dispatch<React.SetStateAction<boolean>>;
-};
+const Home = () => {
+  const [isShowNav, setIsShowNav] = useState(false);
 
-const Home = ({ isShowNav, setIsShowNav }: HomeProps) => {
   return (
     <article className="container min-h-screen px-2 py-4 grid grid-cols-1 grid-flow-row gap-4 relative">
-      <Nav isShowNav={isShowNav} setIsShowNav={setIsShowNav} />
-      <Main />
+      <nav className="flex items-center justify-between">
+        <Nav isShowNav={isShowNav} setIsShowNav={setIsShowNav} />
+      </nav>
+
+      <section className="grid grid-cols-1 grid-flow-row gap-4">
+        <Main />
+      </section>
+
       <div className="bg-new grid grid-flow-row p-4">
         <h1 className="font-bold text-3xl text-Softorange">New</h1>
         {newDatas.map((item) => (
@@ -23,6 +27,7 @@ const Home = ({ isShowNav, setIsShowNav }: HomeProps) => {
           </New>
         ))}
       </div>
+
       <section className="grid grid-flow-row gap-4">
         {factDatas.map((item) => (
           <Fact

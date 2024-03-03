@@ -13,39 +13,41 @@ const Nav = ({ isShowNav, setIsShowNav }: NavProps) => {
   };
 
   return (
-    <nav className="flex items-center justify-between">
+    <>
       <img src={logo} alt="logo icon" />
       <div className="flex">
         <ul
-          className={`bg-Offwhite capitalize font-medium h-full w-[70%] flex flex-col gap-4 absolute top-0 right-0 pt-32 md:text-navAndText ${
+          className={`capitalize font-medium h-full w-full flex flex-col gap-4 absolute top-0 right-0 bg-black bg-opacity-50 md:text-navAndText ${
             isShowNav ? "" : "hidden"
           } `}
         >
-          <li className="py-2 px-4">
-            <a id="home" href="#">
-              home
-            </a>
-          </li>
-          <li className="py-2 px-4">
-            <a id="new" href="#">
-              new
-            </a>
-          </li>
-          <li className="py-2 px-4">
-            <a id="popular" href="#">
-              popular
-            </a>
-          </li>
-          <li className="py-2 px-4">
-            <a id="trending" href="#">
-              trending
-            </a>
-          </li>
-          <li className="py-2 px-4">
-            <a id="categories" href="#">
-              categories
-            </a>
-          </li>
+          <div className="absolute top-0 left-1/3 w-2/3 h-full bg-Offwhite pt-32">
+            <li className="py-2 px-4">
+              <a id="home" href="#">
+                home
+              </a>
+            </li>
+            <li className="py-2 px-4">
+              <a id="new" href="#">
+                new
+              </a>
+            </li>
+            <li className="py-2 px-4">
+              <a id="popular" href="#">
+                popular
+              </a>
+            </li>
+            <li className="py-2 px-4">
+              <a id="trending" href="#">
+                trending
+              </a>
+            </li>
+            <li className="py-2 px-4">
+              <a id="categories" href="#">
+                categories
+              </a>
+            </li>
+          </div>
         </ul>
         {!isShowNav ? (
           <img
@@ -63,7 +65,7 @@ const Nav = ({ isShowNav, setIsShowNav }: NavProps) => {
           />
         )}
       </div>
-    </nav>
+    </>
   );
 };
 
