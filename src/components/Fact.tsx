@@ -9,13 +9,21 @@ interface FactProps {
 
 const Fact = ({ id, image, title, children }: FactProps): JSX.Element => {
   return (
-    <div className="grid grid-cols-2 grid-flow-row h-20">
-      <div className=" row-span-3 col-start-1">
-        <img src={image} alt="represent image" />
+    <div className="flex">
+      <div className="w-32 aspect-square cursor-pointer">
+        <img
+          src={image}
+          alt="represent image"
+          className="block w-full h-full object-cover"
+        />
       </div>
-      <h1>0{id}</h1>
-      <h2>{title}</h2>
-      <p>{children}</p>
+      <div className="p-4 grid grid-flow-row gap-2">
+        <h1 className="text-3xl font-bold text-navAndText cursor-pointer">
+          0{id}
+        </h1>
+        <h2 className="font-bold cursor-pointer hover:text-btn">{title}</h2>
+        <p className="text-sm text-navAndText cursor-text">{children}</p>
+      </div>
     </div>
   );
 };

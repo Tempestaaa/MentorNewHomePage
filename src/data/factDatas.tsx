@@ -9,7 +9,7 @@ type factType = {
   desc: string;
 }[];
 
-const factData: factType = [
+const factDatas: factType = [
   {
     id: 1,
     image: retroPC,
@@ -30,4 +30,4 @@ const factData: factType = [
   },
 ];
 
-export default factData;
+export default factDatas;

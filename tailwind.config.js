@@ -8,11 +8,14 @@ export default {
         btn: "hsl(5, 85%, 63%)",
         Offwhite: "hsl(36, 100%, 99%)",
         Grayishblue: "hsl(233, 8%, 79%)",
-        nav: "hsl(236, 13%, 42%)",
+        navAndText: "hsl(236, 13%, 42%)",
         new: "hsl(240, 100%, 5%)",
       },
       fontFamily: {
         default: "'Inter', sans-serif",
+      },
+      gridTemplateRows: {
+        default: "auto 1fr minmax(0, 1fr) auto",
       },
     },
   },
