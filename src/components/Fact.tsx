@@ -9,15 +9,15 @@ interface FactProps {
 
 const Fact = ({ id, image, title, children }: FactProps): JSX.Element => {
   return (
-    <div className="grid grid-cols-[30%_70%]">
+    <div className="grid grid-cols-[30%_70%] items-center">
       <div className="aspect-square cursor-pointer">
         <img
           src={image}
           alt="represent image"
-          className="block object-cover w-full h-full"
+          className="object-cover w-full h-full"
         />
       </div>
-      <div className="p-4 grid grid-flow-row gap-2">
+      <div className="ml-4 grid grid-flow-row gap-2 lg:gap-0">
         <h1 className="text-3xl font-bold text-navAndText cursor-pointer">
           0{id}
         </h1>

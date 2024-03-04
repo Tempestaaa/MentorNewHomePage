@@ -10,6 +10,7 @@ export default {
         Grayishblue: "hsl(233, 8%, 79%)",
         navAndText: "hsl(236, 13%, 42%)",
         new: "hsl(240, 100%, 5%)",
+        navMobile: "rgba(0, 0, 0, 0.5)",
       },
       fontFamily: {
         default: "'Inter', sans-serif",

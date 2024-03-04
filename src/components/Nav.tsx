@@ -1,71 +1,67 @@
 import logo from "../assets/images/logo.svg";
 import menuIcon from "../assets/images/icon-menu.svg";
 import closeMenuIcon from "../assets/images/icon-menu-close.svg";
+import { useState } from "react";
 
-type NavProps = {
-  isShowNav: boolean;
-  setIsShowNav: React.Dispatch<React.SetStateAction<boolean>>;
-};
+type LinksType = {
+  name: string;
+  link: string;
+}[];
 
-const Nav = ({ isShowNav, setIsShowNav }: NavProps) => {
+const Links: LinksType = [
+  {
+    name: "Home",
+    link: "#",
+  },
+  {
+    name: "New",
+    link: "#",
+  },
+  {
+    name: "Popular",
+    link: "#",
+  },
+  {
+    name: "Trending",
+    link: "#",
+  },
+  {
+    name: "Categories",
+    link: "#",
+  },
+];
+
+const Nav = () => {
+  const [isShowNav, setIsShowNav] = useState(true);
+
   const handleShowNav = (): void => {
     setIsShowNav(!isShowNav);
   };
 
   return (
-    <>
-      <img src={logo} alt="logo icon" />
-      <div className="flex">
-        <ul
-          className={`capitalize font-medium h-full w-full flex flex-col gap-4 absolute top-0 right-0 bg-black bg-opacity-50 md:text-navAndText ${
-            isShowNav ? "" : "hidden"
-          } `}
-        >
-          <div className="absolute top-0 left-1/3 w-2/3 h-full bg-Offwhite pt-32">
-            <li className="py-2 px-4">
-              <a id="home" href="#">
-                home
-              </a>
-            </li>
-            <li className="py-2 px-4">
-              <a id="new" href="#">
-                new
-              </a>
-            </li>
-            <li className="py-2 px-4">
-              <a id="popular" href="#">
-                popular
-              </a>
-            </li>
-            <li className="py-2 px-4">
-              <a id="trending" href="#">
-                trending
-              </a>
-            </li>
-            <li className="py-2 px-4">
-              <a id="categories" href="#">
-                categories
-              </a>
-            </li>
-          </div>
-        </ul>
-        {!isShowNav ? (
-          <img
-            src={menuIcon}
-            alt="menu icon"
-            className="cursor-pointer"
-            onClick={handleShowNav}
-          />
-        ) : (
-          <img
-            src={closeMenuIcon}
-            alt="close menu icon"
-            className="cursor-pointer z-10"
-            onClick={handleShowNav}
-          />
+    <nav className="fixed w-full px-8 top-0 left-0">
+      <div className="md:flex items-center justify-between bg-white py-4">
+        <img src={logo} alt="logo icon" />
+
+        {isShowNav && (
+          <ul className="font-medium md:text-navAndText w-full md:w-auto h-screen md:h-auto bg-navMobile md:bg-inherit absolute md:static top-0 right-0">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 w-2/3 md:w-auto h-full md:h-auto ml-auto pt-32 md:pt-0 pl-8 md:pl-0 bg-Offwhite">
+              {Links.map((link, i) => (
+                <li key={i} className="hover:text-btn">
+                  <a href={link.link}>{link.name}</a>
+                </li>
+              ))}
+            </div>
+          </ul>
         )}
       </div>
-    </>
+      <img
+        src={isShowNav ? closeMenuIcon : menuIcon}
+        alt="menu"
+        onClick={handleShowNav}
+        className="w-[40px] aspect-square absolute top-4 right-8 block md:hidden z-10"
+      />
+    </nav>
   );
 };
 
